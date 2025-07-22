@@ -1,0 +1,637 @@
+/* Starry background for space theme */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url('../img/stars.svg');
+  background-repeat: repeat;
+  opacity: 0.4;
+}
+
+/* Space color palette overrides */
+:root {
+  --color-primary: #10131a;
+  --color-secondary: #4fd1ff;
+  --color-white: #eaf6fb;
+  --color-black: #090a0f;
+  --color-grey0: #232946;
+  --color-grey-1: #b8c1ec;
+  --color-grey-2: #7c7c7c;
+  --color-grey-3: #393e46;
+  --color-grey-4: #232946;
+  --color-grey-5: #181c2f;
+  --color-grey-6: #10131a;
+}
+
+/* Add glowing effect to buttons */
+.main-btn, .controls .control, .theme-btn {
+  box-shadow: 0 0 8px 2px #4fd1ff80, 0 0 24px 4px #23294640;
+}
+
+/* Add a subtle glow to section titles */
+.main-title h2, .stat-title {
+  text-shadow: 0 0 8px #4fd1ff, 0 0 24px #232946;
+}
+
+/* Make portfolio and blog images look cosmic */
+.portfolio-item img, .blogs .blog img {
+  box-shadow: 0 0 24px 4px #4fd1ff40;
+  border: 2px solid #232946;
+}
+
+/* Optional: Add a planet or moon to the header */
+.header-content .left-header::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 60%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #4fd1ff 60%, #232946 100%);
+  border-radius: 50%;
+  opacity: 0.7;
+  z-index: 1;
+  box-shadow: 0 0 40px 10px #4fd1ff80;
+}
+
+/* Add padding and alignment to the hero image */
+.header-content .left-header .image {
+    position: relative;
+    box-shadow: 0 0 16px 2px #4fd1ff80;
+    border-radius: 2.5rem 1.5rem 2.5rem 1.5rem;
+    border: 2.5px solid transparent;
+    background: linear-gradient(120deg, #10131a 80%, #232946 100%);
+    background-image: linear-gradient(120deg, #10131a 80%, #232946 100%), linear-gradient(90deg, #fb7185 0%, #4fd1ff 50%, #6366f1 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-position: 0 0, 0 0;
+    background-size: 100% 100%, 200% 100%;
+    transition: background-position 0.7s cubic-bezier(0.4,0.2,0.2,1), box-shadow 0.3s, border-color 0.3s;
+    width: 60%; /* Make a bit smaller */
+    height: 80%; /* Make a bit smaller */
+    margin-left: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-content .left-header .image:hover {
+    background-position: 0 0, 100% 0;
+    box-shadow: 0 0 32px 8px #4fd1ffcc;
+    filter: brightness(1.08) drop-shadow(0 0 8px #4fd1ff88);
+}
+.header-content .left-header .image img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 2.5rem 1.5rem 2.5rem 1.5rem;
+}
+
+/* Fade-down effect for name and designation */
+.header-content .right-header .name {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeDown 1.1s cubic-bezier(0.4,0.2,0.2,1) 0.2s forwards;
+}
+.header-content .right-header .designation {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeDown 1.1s cubic-bezier(0.4,0.2,0.2,1) 0.7s forwards;
+}
+@keyframes fadeDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add a few decorative stars to the front page */
+.stars-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+.stars-decor span {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: #eaf6fb;
+    opacity: 0.8;
+    box-shadow: 0 0 8px 2px #4fd1ff99;
+}
+.stars-decor .star1 { width: 4px; height: 4px; top: 18%; left: 12%; }
+.stars-decor .star2 { width: 3px; height: 3px; top: 32%; left: 80%; }
+.stars-decor .star3 { width: 2.5px; height: 2.5px; top: 60%; left: 25%; }
+.stars-decor .star4 { width: 3.5px; height: 3.5px; top: 75%; left: 60%; }
+.stars-decor .star5 { width: 2px; height: 2px; top: 50%; left: 50%; }
+.stars-decor .star6 { width: 2.5px; height: 2.5px; top: 10%; left: 70%; }
+.stars-decor .star7 { width: 3px; height: 3px; top: 85%; left: 15%; }
+
+.stars-decor-right {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    pointer-events: none;
+    z-index: 1;
+}
+.stars-decor-right .star8 {
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 8px 2px #4fd1ff;
+}
+.stars-decor-right .star9 {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    width: 2.5px;
+    height: 2.5px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.7;
+    box-shadow: 0 0 6px 1px #4fd1ff;
+}
+.stars-decor-right .star10 {
+    position: absolute;
+    top: 60%;
+    right: 25%;
+    width: 3.5px;
+    height: 3.5px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.9;
+    box-shadow: 0 0 10px 2px #4fd1ff;
+}
+.stars-decor-right .star11 {
+    position: absolute;
+    top: 80%;
+    right: 10%;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.6;
+    box-shadow: 0 0 4px 1px #4fd1ff;
+}
+.stars-decor-right .star12 {
+    position: absolute;
+    top: 50%;
+    right: 35%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.85;
+    box-shadow: 0 0 12px 3px #4fd1ff;
+}
+
+/* Fixed Download CV button styles */
+.cv-btn-fixed {
+    position: fixed;
+    right: 2.5rem;
+    bottom: 2.5rem;
+    z-index: 2000;
+    box-shadow: 0 0 16px 2px #4fd1ff80;
+    animation: cv-float 2s infinite alternate cubic-bezier(0.4,0.1,0.6,0.9);
+    padding: 0.5rem 0.5rem 0.5rem 1.2rem;
+    border-radius: 2.5rem 1.5rem 2.5rem 1.5rem;
+    border: 2.5px solid #4fd1ff;
+    background: linear-gradient(120deg, #10131a 80%, #232946 100%);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.cv-btn-fixed:hover {
+    box-shadow: 0 0 32px 8px #4fd1ffcc;
+    border-color: #eaf6fb;
+}
+.cv-btn-fixed .main-btn {
+    font-size: 1.1rem;
+    padding: 0.7rem 2.2rem;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+@keyframes cv-float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@media (max-width: 700px) {
+    .cv-btn-fixed {
+        right: 1rem;
+        bottom: 1rem;
+        padding: 0.3rem 0.3rem 0.3rem 0.8rem;
+    }
+    .cv-btn-fixed .main-btn {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+    }
+}
+
+/* --- Animation for name/designation in center --- */
+.name-designation-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: static;
+    width: auto;
+    min-width: 320px;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeDown 1.1s cubic-bezier(0.4,0.2,0.2,1) 0.2s forwards;
+}
+.name-designation-wrapper .name {
+    border: none;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0.7rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #eaf6fb;
+    display: inline-block;
+    transition: none;
+    background: linear-gradient(90deg, #fb7185 0%, #4fd1ff 50%, #6366f1 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    transition: background-position 0.7s cubic-bezier(0.4,0.2,0.2,1), filter 0.3s;
+    filter: brightness(0.95);
+}
+.name-designation-wrapper .name:hover {
+    background-position: 100% 50%;
+    filter: brightness(1.1) drop-shadow(0 0 8px #4fd1ff88);
+}
+.name-designation-wrapper .designation {
+    font-size: 1.2rem;
+    color: #4fd1ff;
+    font-weight: 500;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: -0.5rem 0 0 0;
+}
+@media (max-width: 700px) {
+    .name-designation-wrapper {
+        min-width: 180px;
+        padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+    }
+    .name-designation-wrapper .name {
+        font-size: 1.3rem;
+    }
+    .name-designation-wrapper .designation {
+        font-size: 1rem;
+    }
+}
+
+/* Typing effect in top right */
+.typing-effect.move-top-right {
+    position: fixed;
+    top: 2.5rem;
+    right: 3.5rem;
+    min-width: 340px;
+    background: rgba(16,19,26,0.92);
+    box-shadow: 0 0 24px 4px #4fd1ff80;
+    border-radius: 1.5rem 2.5rem 1.5rem 2.5rem;
+    padding: 1.2rem 2.2rem 1.2rem 2.2rem;
+    z-index: 4000;
+    color: #eaf6fb;
+    font-size: 1.25rem;
+    font-family: 'Poppins', monospace, sans-serif;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+#typing-text {
+    border-right: 2.5px solid #4fd1ff;
+    white-space: pre;
+    overflow: hidden;
+    animation: blink-caret 0.8s step-end infinite;
+}
+@keyframes blink-caret {
+    0%, 100% { border-color: #4fd1ff; }
+    50% { border-color: transparent; }
+}
+@media (max-width: 700px) {
+    .typing-effect.move-top-right {
+        top: 1rem;
+        right: 0.5rem;
+        min-width: 180px;
+        padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+        font-size: 1rem;
+    }
+}
+
+.about-container.well-furnished {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0 auto 2rem auto;
+    background: none;
+    /* Move .about-card to the left corner on large screens */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 0;
+}
+.about-card h4 {
+    font-size: 2rem;
+    color: #4fd1ff;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.about-card .about-highlight {
+    color:#4fd1ff ;
+    font-weight: 600;
+    background: rgba(79,209,255,0.08);
+    border-radius: 0.7em;
+    padding: 0.1em 0.4em;
+    margin: 0 0.1em;
+}
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        min-height: auto;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0 0 2rem 0;
+    }
+    .about-card {
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+        font-size: 1rem;
+        max-width: 98vw;
+        width: 98vw;
+        margin: 1.2rem auto 1.2rem auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        /* Centered alignment on mobile */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+/* Cosmic style for skills-list items in about-stats */
+.about-stats .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5em 2em;
+    margin-top: 1em;
+    justify-content: flex-start;
+}
+.skills-category {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 180px;
+    margin-bottom: 1.2em;
+    background: rgba(16,19,26,0.85);
+    border-radius: 1.5em;
+    box-shadow: 0 0 12px 2px #4fd1ff22;
+    padding: 1.1em 1.3em 1.2em 1.3em;
+    border: 2.5px solid transparent;
+    background-image: linear-gradient(120deg, #10131a 80%, #232946 100%), linear-gradient(90deg, #fb7185 0%, #4fd1ff 50%, #6366f1 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-position: 0 0, 0 0;
+    background-size: 100% 100%, 200% 100%;
+    transition: background-position 0.7s cubic-bezier(0.4,0.2,0.2,1), box-shadow 0.3s, border-color 0.3s;
+}
+.skills-category:hover {
+    background-position: 0 0, 100% 0;
+    box-shadow: 0 0 24px 6px #4fd1ff44;
+    filter: brightness(1.05) drop-shadow(0 0 8px #4fd1ff88);
+}
+.skills-category-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #4fd1ff;
+    margin-bottom: 0.7em;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px #4fd1ff44;
+}
+.skills-category .skill-btn {
+    margin: 0.3em 0.5em 0.3em 0;
+}
+@media (max-width: 900px) {
+    .about-stats .skills-list {
+        flex-direction: column;
+        gap: 1.2em 0;
+    }
+    .skills-category {
+        min-width: 0;
+        width: 100%;
+        padding: 0.8em 1em 0.9em 1em;
+    }
+}
+
+/* Cosmic style for View Certificate button */
+.certificate-btn {
+    display: inline-block;
+    margin-top: 0.7em;
+    padding: 0.45em 1.4em;
+    font-weight: 600;
+    color: #fff;
+    border: 2.5px solid transparent;
+    border-radius: 2em;
+    background-image: linear-gradient(120deg, #10131a 80%, #232946 100%), linear-gradient(90deg, #fb7185 0%, #4fd1ff 50%, #6366f1 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 0 8px 2px #4fd1ff80, 0 0 2px 1px #fb718580;
+    text-decoration: none;
+    transition: background-position 0.7s cubic-bezier(0.4,0.2,0.2,1), box-shadow 0.3s, color 0.3s;
+    background-position: 0 0, 0 0;
+    background-size: 100% 100%, 200% 100%;
+    cursor: pointer;
+}
+.certificate-btn:hover {
+    background-position: 0 0, 100% 0;
+    color: #4fd1ff;
+    box-shadow: 0 0 16px 4px #4fd1ffcc, 0 0 4px 2px #fb7185cc;
+    filter: brightness(1.1) drop-shadow(0 0 8px #4fd1ff88);
+}
+.blogs .blog img {
+    border: 2.5px solid #f04fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 24px 4px #4fd1ff80, 0 0 8px 2px #f04fff80;
+    background: linear-gradient(120deg, #10131a 80%, #232946 100%);
+    padding: 0.15rem;
+    transition: border-color 1.7s cubic-bezier(0.4,0.2,0.2,1), box-shadow 2.1s cubic-bezier(0.4,0.2,0.2,1);
+}
+.blogs .blog img:hover {
+    border-color: #4fd1ff;
+    box-shadow: 0 0 32px 8px #f04fffcc, 0 0 16px 4px #4fd1ffcc;
+}
+.blogs .blog h4 {
+    color: #f04fff;
+    background: linear-gradient(90deg, #f04fff 0%, #4fd1ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px #4fd1ff80, 0 0 2px #f04fff80;
+    transition: color 0.5s, text-shadow 0.7s;
+}
+.blogs .blog h4:hover {
+    color: #4fd1ff;
+    text-shadow: 0 0 24px #f04fffcc, 0 0 8px #4fd1ffcc;
+}
+
+/* Project Glow Effect */
+.project-glow {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(14, 165, 233, .4), transparent 40%);
+    opacity: 0;
+    transition: opacity .7s cubic-bezier(0.4,0.2,0.2,1);
+    z-index: 0;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+.project-content {
+    position: relative;
+    background: linear-gradient(120deg, #10131a 80%, #232946 100%);
+    border-radius: 1.2rem;
+    box-shadow: 0 0 24px 4px #4fd1ff40, 0 0 8px 2px #f04fff40;
+    padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+    margin-bottom: 2.2rem;
+    overflow: hidden;
+    border: 2.5px solid #f04fff;
+    transition: box-shadow 0.7s cubic-bezier(0.4,0.2,0.2,1), border-color 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+.project-content:hover {
+    border-color: #4fd1ff;
+    box-shadow: 0 0 32px 8px #f04fffcc, 0 0 16px 4px #4fd1ffcc;
+}
+.project-content h4 {
+    color: #f04fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.5px;
+}
+.project-content p {
+    color: #eaf6fb;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Reset blog image styles for projects */
+.blogs .blog img { display: none !important; }
+/* Blog GitHub icon - right bottom corner */
+.blog-text {
+    position: relative;
+}
+
+/* Cosmic Connect Button Styling */
+.cosmic-btn-connect {
+    display: inline-block;
+    padding: 14px 38px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(90deg, #e25cee 0%, #60bcea 100%, #fbc2eb 80%);
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 18px 4px #a18cd1cc, 0 0 2px 1px #fff8;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s, transform 0.2s;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+.cosmic-btn-connect:hover, .cosmic-btn-connect:focus {
+    background: linear-gradient(90deg, #60bcea 0%, #e25cee 100%, #fbc2eb 80%);
+    color: #13018a;
+    box-shadow: 0 0 28px 8px #8affff99, 0 0 2px 1px #fff4;
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Center the Connect button in the right-contact section */
+.right-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Improved cosmic style for contact icons below Connect button */
+.contact-icons-below {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.contact-icons-below .contact-icon {
+    display: flex;
+    gap: 22px;
+}
+.contact-icons-below .contact-icon a {
+    font-size: 1.8rem;
+    color: #fff;
+    background: linear-gradient(135deg, #232526 60%, #6a5acd 100%);
+    border-radius: 18px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 16px 2px #6a5acd55, 0 0 2px 1px #fff2;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+    margin: 0 6px;
+    border: 2px solid #6a5acd33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-icons-below .contact-icon a:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #fbc2eb 0%, #e140e1 100%);
+    box-shadow: 0 0 24px 6px #fbc2eb99, 0 0 2px 1px #11b4dc;
+    border-color: #fbc2eb;
+    transform: scale(1.13) rotate(-6deg);
+}
